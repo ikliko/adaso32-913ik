@@ -14,8 +14,8 @@
 <form action="" method="post">
     <?php
     if(isset($_POST['submit'])) {
-        $username = $_POST['username'];
-        $password = $_POST['password'];
+        $username = htmlspecialchars($_POST['username']);
+        $password = sha1(htmlspecialchars($_POST['password']), "#@!00a");
 
         if(empty($username) or empty($password)) {
             echo "<p>Missing fields.</p>";

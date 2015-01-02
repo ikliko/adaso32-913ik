@@ -9,7 +9,18 @@
 <header>
     <?php include 'title_bar.php'; ?>
 </header>
+<?php if($user_level != 1 && $user_level != 2) {
+    header('location: login.php');
+}
+?>
 <h3>Profile - Admin Panel System</h3>
 <p>You are logged in as: <?php echo $username; echo "[$level_name]"; ?></p>
+
+<p>
+<?php if($user_level == 1): ?>
+<a href="admin.php">Admin Panel</a>
+<?php endif; ?>
+</p>
+
 </body>
 </html>

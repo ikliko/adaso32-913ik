@@ -1,5 +1,5 @@
-<nav id="nav">
-<ul id="menu">
+<nav>
+<ul>
 
 <?php
 /**
@@ -20,7 +20,6 @@ if(loggedin()): ?>
 <li>
     <a href="logout.php">Logout</a>
 </li>
-<script src="script/MenuMaker.js"></script>
 <?php else: ?>
 <li>
     <a href="Index.php">Home</a>

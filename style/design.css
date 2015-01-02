@@ -1,0 +1,37 @@
+﻿body, header, footer, main ,form, div, ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+body div {
+    background-color: #5c5c5c;
+    height: 30px;
+}
+
+body header ul {
+    margin: 0 0 0 30px;
+    position: fixed;
+}
+
+body header ul li {
+    float: left;
+    margin: 0 0 0 5px;
+    color: #ffffff;
+}
+
+body header form {
+    margin: 4px 150px 0 0;
+    float: right;
+    color: #b8b8b8;
+}
+
+body header form input {
+    border: none;
+    background-color: #b8b8b8;
+}
+
+
+body header form input.submit {
+    border: none;
+    background-color: #ffffff;
+}

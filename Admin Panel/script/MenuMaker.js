@@ -24,16 +24,32 @@ function addInput() {
 
     } else {
         noInput = true;
-        var input = document.createElement('input');
+        var form = document.createElement('form'),
+            input = document.createElement('input');
+
+        form.setAttribute('method', 'get');
+
+        input.setAttribute('name', 'input');
         input.setAttribute('type', 'text');
         input.setAttribute('id', 'getElement');
         input.setAttribute('value', 'Enter element..');
 
+        form.style.width = "auto";
+        form.style.margin = '0';
+        form.style.padding = '0';
+        form.style.border = 'none';
+        form.style.backgroundColor = "";
+        form.style.textAlign = 'left';
+
         input.style.color = "#ccc";
         input.style.position = "absolute";
         input.style.margin = "25px 0 0 0";
+        input.style.borderRadius = '0';
+        input.style.height = '20px';
 
-        nav.insertBefore(input, menu);
+
+        form.appendChild(input);
+        nav.insertBefore(form, menu);
 
         input.addEventListener("mouseup", function () {
             input.style.color = "#000";
@@ -45,7 +61,8 @@ function addInput() {
         getElement.addEventListener('keypress', function (e) {
             var key = e.which || e.keyCode;
             haveInput = true;
-            if (key == 13) { // 13 is enter
+            var noEmpty = input.value == '' || input.value == ' ' || input.value == 'Enter element..';
+            if ((key == 13) && noEmpty) { // 13 is enter
                 var newElement = getElement.value,
                     li = document.createElement("li"),
                     a = document.createElement("a"),
@@ -70,6 +87,5 @@ function addInput() {
         });
     }
 };
-
 
 linkItem.addEventListener("click", addInput);

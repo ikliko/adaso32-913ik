@@ -6,11 +6,6 @@
  * Time: 18:47 ч.
  */
 include 'connect.php';
-include 'functions.php';
-
-if($user_level != 1) {
-    header("location: profile.php");
-}
 
 $alphabet = array(
     1 => 'A', 2 => 'a',
@@ -47,7 +42,7 @@ while($run_list = mysql_fetch_array($list_query)){
     $elementCounter++;
 }
 
-$max = 30;
+$max = 500;
 
 if($elementCounter == $max){
     header("location: admin.php?type=key");
@@ -57,7 +52,7 @@ $fill = $max - $elementCounter;
 $alphaNum = true;
 for($key = 0; $key < $fill; $key++) {
     $accessKey = "";
-    for ($i = 0; $i < 32; $i++) {
+    for ($i = 0; $i < 64; $i++) {
         if ($alphaNum) {
             $alphaRand = rand(1, 52);
             $ch = $alphabet[$alphaRand];
@@ -66,7 +61,10 @@ for($key = 0; $key < $fill; $key++) {
             $rand = rand(0, 9);
             $accessKey .= $rand;
         }
-        $alphaNum = !$alphaNum;
+        $num = rand(1,2);
+        if($num == 1){
+            $alphaNum = !$alphaNum;
+        }
     }
     $sql = "INSERT INTO `activate_keys`(`id`, `accesskey`, `type`) VALUES ('', '$accessKey', 'd')";
     mysql_query($sql);

@@ -1,37 +1,220 @@
-﻿body, header, footer, main ,form, div, ul, li {
+﻿body, header, footer, main ,form, div, ul, li, h1, h2, h3, h4 {
     margin: 0;
     padding: 0;
 }
 
-body div {
+body header {
+    font-size: 16px;
+    font-family: verdana, helvetica;
+    background-image: linear-gradient(#aeaeae, #8b8b8b);
+    position: absolute;
+    width: 100%;
+    height: 300px;
+}
+
+body header div {
     background-color: #5c5c5c;
     height: 30px;
-}
-
-body header ul {
-    margin: 0 0 0 30px;
     position: fixed;
+    width: 100%;
+    z-index: 100;
 }
 
-body header ul li {
+body header div ul {
+    float: left;
+    margin: 2px 0 0 150px;
+}
+
+body header div ul li {
+    list-style: none;
     float: left;
     margin: 0 0 0 5px;
     color: #ffffff;
 }
 
-body header form {
-    margin: 4px 150px 0 0;
+body header div ul li a {
+    text-decoration: none;
+    border: none;
+    padding: 0;
+}
+
+body header div ul li a:hover {
+    border: none;
+    background-color: transparent;
+}
+
+body header div form span {
+    color: #ffffff;
+    margin: 0 20px 0 0;
+}
+
+body header div form {
+    margin: 5px 150px 0 0;
     float: right;
     color: #b8b8b8;
 }
 
-body header form input {
+body header div form input {
     border: none;
     background-color: #b8b8b8;
 }
 
 
-body header form input.submit {
+body header div form input.Submit {
     border: none;
     background-color: #ffffff;
+    cursor: pointer;
 }
+
+body header h1 a strong img {
+    margin: 35px 0 5px 200px;
+    height: 65px;
+}
+
+body header img {
+    margin: 0 0 0 20%;
+}
+
+body header ul {
+    margin: -295px 0 0 740px;
+    position: absolute;
+}
+
+body header ul li {
+    float: left;
+    list-style: none;
+    margin: 0 0 0 20px;
+}
+
+body header ul li a {
+    border: 3px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+    padding: 1px 3px 1px 3px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+body header ul li a:hover {
+    border-top: 3px solid #000000;
+    border-left: 3px solid #000000;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    background-color: #868686;
+}
+
+
+body header ul li a.current {
+    border-top: 3px solid #000000;
+    border-left: 3px solid #000000;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    background-color: #868686;
+}
+
+body header h1.title {
+    color: #ffffff;
+    font-size: 18px;
+    word-spacing: 1px;
+    margin: -225px 0 0 210px;
+}
+
+body header p {
+    color: #ffffff;
+    font-size: 18px;
+    margin: 40px 0 80px 210px;
+}
+
+body img {
+    margin: 300px 0 0 15%;
+}
+
+body main {
+    margin: 0 auto;
+    width: 750px;
+}
+
+body main article {
+    background: none;
+    width: 300px;
+    height: 200px;
+    float: left;
+    background-image: radial-gradient(#eee, #e2e2e2);
+    margin: 20px 0 0 50px;
+    border-right: 3px solid #c8c8c8;
+    border-bottom: 3px solid #c8c8c8;
+    border-radius: 20px;
+}
+
+body main article header {
+    width: auto;
+    height: auto;
+    background: transparent;
+    display: block;
+    position: inherit;
+}
+
+body main article header h2 {
+    text-align: center;
+}
+
+body main article main {
+    height: 140px;
+    width: auto;
+    background-image: radial-gradient(#eee, #e2e2e2);
+    margin: 0;
+    padding: 0 20px 0 20px;
+}
+
+body main article footer {
+    height: auto;
+    background: transparent;
+    position: inherit;
+    text-align: left;
+    font-style: italic;
+    padding: 0 0 0 15px;
+}
+
+body img.footer_separator {
+    margin: 20px 0 0 20%;
+}
+
+body footer {
+    margin: 0 0 0 0;
+    height: 100px;
+    background-image: linear-gradient(#8b8b8b, #aeaeae);
+}
+
+body footer nav {
+    margin: 0 0 0 140px;
+    padding: 40px 0 0 0;
+}
+
+body footer nav ul {
+
+}
+
+
+body footer nav ul li {
+    list-style: none;
+    float: left;
+    margin: 0 0 0 20px;
+}
+
+body footer nav ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    border: 3px solid transparent;
+    border-bottom: 2px solid transparent;
+    border-right: 2px solid transparent;
+}
+
+body footer nav ul li a:hover {
+    border-top: 3px solid #000000;
+    border-left: 3px solid #000000;
+    border-right: 2px solid transparent;
+    border-bottom: 2px solid transparent;
+    background-color: #868686;
+}
+
+

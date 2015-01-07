@@ -19,12 +19,27 @@
      * Date: 30.12.2014 г.
      * Time: 00:39 ч.
      */
+     if($user_level != 1 && $user_level != 2 && $user_level != 3) {
+        header('location: login.php');
+    }
     include "site_menu.php";
     ?>
     </ul>
 </nav>
 <script src="script/MenuMaker.js"></script>
 <?php
+if(isset($_GET['input']) && !empty($_GET['input'])) {
+    $tab = htmlspecialchars($_GET['input']);
+    $content = '<article>
+<header><h2>Home</h2></header>
+<main>Site</main>
+<footer>Author</footer>
+</article>';
+    $sql = "INSERT INTO `site_page`(`id`, `page_title`, `content`) VALUES ('', '$tab', '$content')";
+    mysql_query($sql);
+    header("location: site_menu_editor.php");
+}
+
 if(isset($_GET['id']) && !empty($_GET['id'])) : $id = $_GET['id']; ?>
     <form action="page_tab_content.php" method="get" id="no-style">
         <textarea name="areaEditor" cols="50" rows="20"><?php
@@ -50,26 +65,3 @@ if(isset($_GET['id']) && !empty($_GET['id'])) : $id = $_GET['id']; ?>
 <?php endif; ?>
 </body>
 </html>
-
-
-<?php
-#$content = trim($_GET['c']);
-#$pattern = "/(\<header\>.*<\/header>)(\<main\>.*\<\/main\>)(\<footer\>.*\<\/footer\>)/";
-#preg_match_all($pattern, $content, $articles, PREG_SET_ORDER);
-#echo "[ARTICLE:]\n\n";
-#foreach($articles as $article) {
-#    $lines = count($article);
-#    for($i = 1; $i < $lines; $i++) {
-#        $curLine = $article[$i];
-#        $artPat = "/\<(\w+)\>(.*)\<\/(\w+)\>/";
-#        preg_match_all($artPat, $curLine, $lineElements, PREG_SET_ORDER);
-#        $elmTag = $lineElements[0][1];
-#        $up = $elmTag;
-#        echo "\t[$up:]\n";
-#        $elmContent = $lineElements[0][2];
-#        echo "\t\t$elmContent\n";
-#        echo "\t[END$up]\n\n";
-#    }
-#}
-#echo "[ENDARTICLE]";
-?>

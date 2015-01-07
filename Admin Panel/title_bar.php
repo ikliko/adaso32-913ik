@@ -10,7 +10,6 @@
  */
 
 if(loggedin()): ?>
-<?php if($user_level == 1): ?>
 <li>
     <a href="Index.php">Home</a>
 </li>
@@ -20,17 +19,6 @@ if(loggedin()): ?>
 <li>
     <a href="logout.php">Logout</a>
 </li>
-<?php else: ?>
-<li>
-    <a href="Index.php">Home</a>
-</li>
-<li>
-    <a href="profile.php">Profile</a>
-</li>
-<li>
-    <a href="logout.php">Logout</a>
-</li>
-<?php endif; ?>
 <?php else: ?>
 <li>
     <a href="Index.php">Home</a>

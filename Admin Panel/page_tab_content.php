@@ -8,13 +8,25 @@
 include 'connect.php';
 include 'functions.php';
 
-if(isset($_GET['areaEditor']) && !empty($_GET['areaEditor'])) {
-    $content = $_GET['areaEditor'];
+if($user_level != 1 && $user_level != 3){
+    header("location: login.php");
+}
+
+if(isset($_GET['areaEditor'])) {
+    $content = htmlspecialchars($_GET['areaEditor']);
     $id = $_GET['id'];
     $t = $_GET['t'];
     $title = "";
     for($i = 4; $i < strlen($t); $i++){
         $title .= $t[$i];
+    }
+
+    if(strlen($content) == 0) {
+        $content = "<article>
+<header><h2>Home</h2></header>
+<main>Site</main>
+<footer>Author</footer>
+</article>";
     }
 
     //$sql = "UPDATE `users` SET `type`='d' WHERE `id`=$u_id";

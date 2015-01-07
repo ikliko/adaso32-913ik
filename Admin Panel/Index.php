@@ -10,5 +10,12 @@
 <header>
     <?php include 'title_bar.php'; ?>
 </header>
+<?php if(loggedin()) : ?>
+<p>
+<h3>
+    <h3>Welcome, <?php echo $username;?></h3>
+</h3>
+</p>
+<?php endif; ?>
 </body>
 </html>

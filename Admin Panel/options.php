@@ -9,24 +9,36 @@
 include 'connect.php';
 include 'functions.php';
 
-$u_id = $_GET['u_id'];
-$u_type = $_GET['u_type'];
-$type = $_GET['type'];
+if($user_level != 1 && $user_level != 3){
+    header("location: Index.php");
+}
 
-if($type == "user") {
-    if ($u_type == 'a') {
-        mysql_query("UPDATE `users` SET `type`='d' WHERE `id`=$u_id");
+$id = $_GET['u_id'];
+$type = $_GET['u_type'];
+$option = $_GET['type'];
+
+if($option == "user") {
+    if ($type == 'a') {
+        mysql_query("UPDATE `users` SET `type`='d' WHERE `id`=$id");
         header("location: admin.php?type=user");
-    } else if ($u_type == 'd') {
-        mysql_query("UPDATE `users` SET `type`='a' WHERE `id`=$u_id");
+    } else if ($type == 'd') {
+        mysql_query("UPDATE `users` SET `type`='a' WHERE `id`=$id");
         header("location: admin.php?type=user");
     }
-} else if($type == "key") {
-    if($u_type == 'a') {
-        mysql_query("UPDATE `activate_keys` SET `type`='d' WHERE `id`=$u_id");
+} else if($option == "key") {
+    if($type == 'a') {
+        mysql_query("UPDATE `activate_keys` SET `type`='d' WHERE `id`=$id");
         header("location: admin.php?type=key");
-    } else if($u_type == 'd') {
-        mysql_query("UPDATE `activate_keys` SET `type`='a' WHERE `id`=$u_id");
+    } else if($type == 'd') {
+        mysql_query("UPDATE `activate_keys` SET `type`='a' WHERE `id`=$id");
+        header("location: admin.php?type=key");
+    }
+} else if($option == "delete") {
+    if($type == "user") {
+        mysql_query("DELETE FROM `users` WHERE `id`=$id");
+        header("location: admin.php?type=user");
+    } else if($type == "key") {
+        mysql_query("DELETE FROM `activate_keys` WHERE `id`=$id");
         header("location: admin.php?type=key");
     }
 }

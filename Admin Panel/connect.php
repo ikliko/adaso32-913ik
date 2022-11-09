@@ -5,9 +5,9 @@
  * Date: 25.12.2014 г.
  * Time: 22:22 ч.
  */
-$server = "localhost";
-$account = 'myadminsql';
-$password = 'trudnapar0L@';
+$server = "";
+$account = '';
+$password = '';
 $db = 'admin_panel';
 mysql_connect($server, $account, $password);
 
